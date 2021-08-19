@@ -1,0 +1,2 @@
+body{background:#ff0;justify-content:center}body,body #image-wrapper{display:flex}body #image-wrapper div{margin:0 20px}body #image-wrapper #rock{background:url(/img/rock.png);cursor:pointer;height:200px;width:210px}body #image-wrapper #paper{background:url(/img/paper.png);cursor:pointer;height:200px;width:250px}body #image-wrapper #scissors{background:url(/img/scissors.png);cursor:pointer;height:200px;width:235px}
+/*# sourceMappingURL=main.css.map */

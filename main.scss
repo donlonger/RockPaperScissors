@@ -1,0 +1,31 @@
+body {
+    background: yellow;
+    display: flex; 
+    justify-content: center;
+
+    #image-wrapper {
+        display: flex;
+        div {
+            margin: 0 20px;
+        }
+
+        #rock {
+            background: url(/img/rock.png);
+            height: 200px;
+            width: 210px;
+            cursor: pointer;
+        }
+        #paper {
+            background: url(/img/paper.png);
+            height: 200px;
+            width: 250px;
+            cursor: pointer;
+        }
+        #scissors  {
+            background: url(/img/scissors.png);
+            height: 200px;
+            width: 235px;
+            cursor: pointer;
+        }
+    }
+}        
