@@ -10,15 +10,12 @@
     </head>
     <body>
         <div id="image-wrapper">
-            <div id="rock">
-
-            </div>
-            <div id="paper">
-
-            </div>
-            <div id="scissors">
-
-            </div>
+            <div onclick="playRound(userPlay('rock'), computerPlay())" id="rock" class="item"></div>
+            <div onclick="playRound(userPlay('paper'), computerPlay())" id="paper" class="item"></div>
+            <div onclick="playRound(userPlay('scissors'), computerPlay())" id="scissors" class="item"></div> 
+            <div class="computerrock hide item" style="display: none;"></div>
+            <div class="computerpaper hide item" style="display: none;"></div>
+            <div class="computerscissors hide item" style="display: none;"></div>
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>

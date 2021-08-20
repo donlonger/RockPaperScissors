@@ -1,31 +1,62 @@
 body {
     background: yellow;
-    display: flex; 
-    justify-content: center;
+    margin: 0 auto;
+    max-width: 1600px;
+
 
     #image-wrapper {
-        display: flex;
-        div {
-            margin: 0 20px;
+        display: grid;
+        width: 1500px;
+        margin: 0 auto;
+        grid-template-columns:repeat(5, 20%);
+        grid-template-rows:repeat(5, 20%);
+        height: 80vh;
+
+        .item {
+            height: 220px;
+            width: 255px;
+            cursor: pointer;
         }
 
         #rock {
             background: url(/img/rock.png);
-            height: 200px;
-            width: 210px;
-            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-column-start: 2;
+            grid-row-start: 4;
         }
         #paper {
             background: url(/img/paper.png);
-            height: 200px;
-            width: 250px;
-            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-row-start: 4;
+            grid-column-start: 3;
         }
         #scissors  {
             background: url(/img/scissors.png);
-            height: 200px;
-            width: 235px;
-            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+            grid-row-start: 4;
+            grid-column-start: 4;
+        }
+
+        .computerrock {
+            background: url(/img/rock.png);
+            background-repeat: no-repeat;
+            grid-row-start: 2;
+            grid-column-start: 3;
+        }
+        .computerpaper {
+            background: url(/img/paper.png);
+            background-repeat: no-repeat;
+            grid-row-start: 2;
+            grid-column-start: 3;
+        }
+        .computerscissors {
+            background: url(/img/scissors.png);
+            background-repeat: no-repeat;
+            grid-row-start: 2;
+            grid-column-start: 3;
         }
     }
 }        
