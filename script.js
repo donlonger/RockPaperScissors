@@ -1,7 +1,8 @@
 let rock = document.getElementById("rock");
 let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
-let scoreUser = 0; 
+let userScore = document.getElementById("userScore"); 
+let computerScore = document.getElementById("computerScore");
 let array = [rock.id, paper.id, scissors.id];
 
 function computerPlay() {
@@ -23,6 +24,9 @@ function userPlay(id) {
 
 function playRound(userPlay, computerPlay) {
     var elements = document.getElementsByClassName('hide');
+    var numberUser = userScore.innerHTML;
+    var numberComputer = computerScore.innerHTML;
+
     for(var i=0; i < elements.length; i++) {  
         document.getElementsByClassName("hide")[i].style.display = 'none';
     }
@@ -31,26 +35,39 @@ function playRound(userPlay, computerPlay) {
     if(userPlay == "rock" && computerPlay =="paper") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
         document.getElementsByClassName('computerpaper')[0].style.display='flex';
+        numberComputer++;
+        computerScore.innerHTML = numberComputer;
+
     }
     else if(userPlay == "rock" && computerPlay =="scissors") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. You've Won`);
         document.getElementsByClassName('computerscissors')[0].style.display='flex';
+        numberUser++;
+        userScore.innerHTML = numberUser;
     }
     else if(userPlay == "paper" && computerPlay =="scissors") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
         document.getElementsByClassName('computerscissors')[0].style.display='flex';
+        numberComputer++;
+        computerScore.innerHTML = numberComputer;
     }
     else if(userPlay == "paper" && computerPlay =="rock") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. You've Won`);
         document.getElementsByClassName('computerrock')[0].style.display='flex';
+        numberUser++;
+        userScore.innerHTML = numberUser;
     }
     else if(userPlay == "scissors" && computerPlay =="paper") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. You've Won`);
         document.getElementsByClassName('computerpaper')[0].style.display='flex';
+        numberUser++;
+        userScore.innerHTML = numberUser;
     }
     else if(userPlay == "scissors" && computerPlay =="rock") {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
         document.getElementsByClassName('computerrock')[0].style.display='flex';
+        numberComputer++;
+        computerScore.innerHTML = numberComputer;
     }
     else {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. It's a tie`);

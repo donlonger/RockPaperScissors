@@ -2,6 +2,8 @@ body {
     background: yellow;
     margin: 0 auto;
     max-width: 1600px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 36px;
 
 
     #image-wrapper {
@@ -10,12 +12,42 @@ body {
         margin: 0 auto;
         grid-template-columns:repeat(5, 20%);
         grid-template-rows:repeat(5, 20%);
-        height: 80vh;
+        height: 92vh;
+
+        .computer {
+            grid-column-start: 3;
+            grid-row-start: 1;
+            align-self: end;
+            margin-bottom: 20px;
+            
+            span {
+                margin-bottom: 20px;
+            }
+        }
+
+        #computerScore, #userScore {
+            display: flex;
+            justify-content: center;
+        }
+
+        .user {
+            grid-column-start: 3;
+            grid-row-start: 4;
+            align-self: end;
+            justify-self: center;
+            margin-bottom: 20px;
+        }
 
         .item {
             height: 220px;
             width: 255px;
             cursor: pointer;
+            justify-self: center;
+            transition: .2s all;
+
+            &:hover {
+                transform:scale(1.05);
+            }
         }
 
         #rock {
@@ -23,20 +55,20 @@ body {
             background-repeat: no-repeat;
             background-position: center;
             grid-column-start: 2;
-            grid-row-start: 4;
+            grid-row-start: 5;
         }
         #paper {
             background: url(/img/paper.png);
             background-repeat: no-repeat;
             background-position: center;
-            grid-row-start: 4;
-            grid-column-start: 3;
+            grid-column-start: 3; 
+            grid-row-start: 5;
         }
         #scissors  {
             background: url(/img/scissors.png);
             background-repeat: no-repeat;
             background-position: center;
-            grid-row-start: 4;
+            grid-row-start: 5;
             grid-column-start: 4;
         }
 

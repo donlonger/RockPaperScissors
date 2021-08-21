@@ -7,9 +7,20 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One&display=swap" rel="stylesheet">
     </head>
     <body>
         <div id="image-wrapper">
+            <div class="computer">
+                <span>Computer</span>
+                <div id="computerScore">0</div>
+            </div>
+            <div class="user">
+                <span>You</span>
+                <div id="userScore">0</div>
+            </div>
             <div onclick="playRound(userPlay('rock'), computerPlay())" id="rock" class="item"></div>
             <div onclick="playRound(userPlay('paper'), computerPlay())" id="paper" class="item"></div>
             <div onclick="playRound(userPlay('scissors'), computerPlay())" id="scissors" class="item"></div> 
