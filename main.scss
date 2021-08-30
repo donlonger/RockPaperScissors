@@ -5,7 +5,6 @@ body {
     font-family: 'Press Start 2P', cursive;
     font-size: 36px;
 
-
     #image-wrapper {
         display: grid;
         width: 1500px;
@@ -28,6 +27,22 @@ body {
         #computerScore, #userScore {
             display: flex;
             justify-content: center;
+            transition: .3s all;
+        }
+
+        .animation {
+            animation-name: scale;
+            animation-duration: 1s;
+            
+            @keyframes scale {
+                0% {
+                    transform: scale(1.5);
+
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
         }
 
         .user {
@@ -39,8 +54,6 @@ body {
         }
 
         .item {
-            height: 220px;
-            width: 255px;
             cursor: pointer;
             justify-self: center;
             transition: .2s all;
@@ -48,47 +61,100 @@ body {
             &:hover {
                 transform:scale(1.05);
             }
+
+            &.hide {
+                cursor: initial;
+
+                &:hover {
+                    transform: initial;
+                }
+            }
+
+            &.scissors-sizer {
+                height: 167px;
+                width: 178px;
+            }
+
+            &.paper-sizer {
+                height: 150px;
+                width: 185px;
+            }
+
+            &.rock-sizer {
+                height: 160px;
+                width: 170px;
+            }
+            
         }
+
 
         #rock {
             background: url(/img/rock.png);
             background-repeat: no-repeat;
             background-position: center;
+            background-size: cover;
             grid-column-start: 2;
             grid-row-start: 5;
+
+            &.userChoiceStyle {
+                display: flex;
+                grid-column-start: 3;
+                grid-row-start: 3;
+            }
         }
         #paper {
             background: url(/img/paper.png);
             background-repeat: no-repeat;
             background-position: center;
+            background-size: cover;
             grid-column-start: 3; 
             grid-row-start: 5;
+
+            &.userChoiceStyle {
+                display: flex;
+                grid-column-start: 3;
+                grid-row-start: 3;
+            }
         }
         #scissors  {
             background: url(/img/scissors.png);
             background-repeat: no-repeat;
             background-position: center;
+            background-size: cover;
             grid-row-start: 5;
             grid-column-start: 4;
+            
+            &.userChoiceStyle {
+                display: flex;
+                grid-column-start: 3;
+                grid-row-start: 3;
+            }
         }
 
         .computerrock {
             background: url(/img/rock.png);
             background-repeat: no-repeat;
+            background-size: cover;
             grid-row-start: 2;
             grid-column-start: 3;
+            transition: .2s all;
         }
         .computerpaper {
             background: url(/img/paper.png);
             background-repeat: no-repeat;
+            background-size: cover;
             grid-row-start: 2;
             grid-column-start: 3;
+            transition: .2s all;
         }
         .computerscissors {
             background: url(/img/scissors.png);
             background-repeat: no-repeat;
+            background-size: cover;
             grid-row-start: 2;
             grid-column-start: 3;
+            transition: .2s all;
         }
     }
 }        
+
