@@ -26,22 +26,43 @@ function userPlay(id) {
     }
 }
 
+function animation(id) {
+  let animation = document.getElementById(`comp${id}`).animate([
+    // keyframes
+    { background: 'none' },
+    { transform: 'scale(1.2)' },
+    { transform: 'scale(1)' },
+    { background: 'url(/img/rock.png)' },
+    { transform: 'scale(1.2)' },
+    { transform: 'scale(1)' },
+    { background: 'url(/img/rock.png)' },
+    { transform: 'scale(1.2)' },
+    { transform: 'scale(1)' },
+    { background: 'url(/img/rock.png)' },
+    { transform: 'scale(1.2)' },
+    { transform: 'scale(1)' }
+  ], {
+    // timing options
+    duration: 1700,
+  });
+
+  return animation;
+}
+
+let delay = 1600;
+
 
 function playRound(userPlay, computerPlay) {
-
-    function scoreAnimation(id) {
-     //   id.setAttribute("class", `animation`);
-
-    }
 
     function computerWinFormula() {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
         document.getElementsByClassName(`computer${computerPlay}`)[0].style.display='flex';
         userChoice.setAttribute("id", `${userPlay}`);
-        userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`);     
-        numberComputer++;
-        computerScore.innerHTML = numberComputer;
-        computerScore.addEventListener(computerPlay, scoreAnimation(computerScore), false);
+        userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`);
+        setTimeout(function () {
+          numberComputer++;
+          computerScore.innerHTML = numberComputer;
+        }, delay);
         document.getElementById("computerScore").animate([
             // keyframes
             { transform: 'scale(1.5)' },
@@ -49,15 +70,28 @@ function playRound(userPlay, computerPlay) {
           ], {
             // timing options
             duration: 700,
+            delay: 1600,
           });
-          document.getElementById(`comp${computerPlay}`).animate([
-            // keyframes
-            { transform: 'scale(1.5)' },
-            { transform: 'scale(1)' }
-          ], {
-            // timing options
-            duration: 700,
-          });
+
+        animation(computerPlay);
+        document.getElementsByClassName(`userChoiceStyle`)[0].animate([
+          // keyframes
+          { background: 'none' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' }
+        ], {
+          // timing options
+          duration: 1700,
+        });
     }
 
     function userWinFormula() {
@@ -65,9 +99,10 @@ function playRound(userPlay, computerPlay) {
         document.getElementsByClassName(`computer${computerPlay}`)[0].style.display='flex';
         userChoice.setAttribute("id", `${userPlay}`);
         userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`); 
-        numberUser++;
-        userScore.innerHTML = numberUser;
-        userScore.addEventListener(playRound, scoreAnimation(userScore), false);
+        setTimeout(function () {
+          numberUser++;
+          userScore.innerHTML = numberUser;
+        }, delay);
         document.getElementById("userScore").animate([
             // keyframes
             { transform: 'scale(1.5)' },
@@ -75,14 +110,28 @@ function playRound(userPlay, computerPlay) {
           ], {
             // timing options
             duration: 700,
+            delay: 1600,
           });
-          document.getElementById(`comp${computerPlay}`).animate([
+
+          animation(computerPlay);
+
+          document.getElementsByClassName(`userChoiceStyle`)[0].animate([
             // keyframes
-            { transform: 'scale(1.5)' },
+            { background: 'none' },
+            { transform: 'scale(1.2)' },
+            { transform: 'scale(1)' },
+            { background: 'url(/img/rock.png)' },
+            { transform: 'scale(1.2)' },
+            { transform: 'scale(1)' },
+            { background: 'url(/img/rock.png)' },
+            { transform: 'scale(1.2)' },
+            { transform: 'scale(1)' },
+            { background: 'url(/img/rock.png)' },
+            { transform: 'scale(1.2)' },
             { transform: 'scale(1)' }
           ], {
             // timing options
-            duration: 700,
+            duration: 1700,
           });
 
     }
@@ -124,5 +173,24 @@ function playRound(userPlay, computerPlay) {
             // timing options
             duration: 700,
           });
+        animation(computerPlay);
+        document.getElementsByClassName(`userChoiceStyle`)[0].animate([
+          // keyframes
+          { background: 'none' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' },
+          { background: 'url(/img/rock.png)' },
+          { transform: 'scale(1.2)' },
+          { transform: 'scale(1)' }
+        ], {
+          // timing options
+          duration: 1700,
+        });
     }
 }
