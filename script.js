@@ -3,11 +3,15 @@ let paper = document.getElementById("paper");
 let scissors = document.getElementById("scissors");
 let userScore = document.getElementById("userScore"); 
 let computerScore = document.getElementById("computerScore");
+let tieScore = document.getElementById("tieScore");
 let userChoice = document.getElementById("userChoice");
 let array = [rock.id, paper.id, scissors.id];
 let elements = document.getElementsByClassName('hide');
 let numberUser = userScore.innerHTML;
 let numberComputer = computerScore.innerHTML;
+let numberTies = tieScore.innerHTML;
+let output = document.getElementById('output-message');
+let delay = 1600;
 
 function computerPlay() {
     let result = array[Math.floor(Math.random() * array.length)];
@@ -32,13 +36,13 @@ function animation(id) {
     { background: 'none' },
     { transform: 'scale(1.2)' },
     { transform: 'scale(1)' },
-    { background: 'url(/img/rock.png)' },
+    { background: 'url(img/rock.png)' },
     { transform: 'scale(1.2)' },
     { transform: 'scale(1)' },
-    { background: 'url(/img/rock.png)' },
+    { background: 'url(img/rock.png)' },
     { transform: 'scale(1.2)' },
     { transform: 'scale(1)' },
-    { background: 'url(/img/rock.png)' },
+    { background: 'url(img/rock.png)' },
     { transform: 'scale(1.2)' },
     { transform: 'scale(1)' }
   ], {
@@ -49,10 +53,10 @@ function animation(id) {
   return animation;
 }
 
-let delay = 1600;
-
 
 function playRound(userPlay, computerPlay) {
+
+    output.innerHTML = "";
 
     function computerWinFormula() {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
@@ -62,6 +66,7 @@ function playRound(userPlay, computerPlay) {
         setTimeout(function () {
           numberComputer++;
           computerScore.innerHTML = numberComputer;
+          output.innerHTML = `Bad luck! Computer Won`;
         }, delay);
         document.getElementById("computerScore").animate([
             // keyframes
@@ -79,13 +84,13 @@ function playRound(userPlay, computerPlay) {
           { background: 'none' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' }
         ], {
@@ -102,6 +107,7 @@ function playRound(userPlay, computerPlay) {
         setTimeout(function () {
           numberUser++;
           userScore.innerHTML = numberUser;
+          output.innerHTML = `You've Won!`;
         }, delay);
         document.getElementById("userScore").animate([
             // keyframes
@@ -120,13 +126,13 @@ function playRound(userPlay, computerPlay) {
             { background: 'none' },
             { transform: 'scale(1.2)' },
             { transform: 'scale(1)' },
-            { background: 'url(/img/rock.png)' },
+            { background: 'url(img/rock.png)' },
             { transform: 'scale(1.2)' },
             { transform: 'scale(1)' },
-            { background: 'url(/img/rock.png)' },
+            { background: 'url(img/rock.png)' },
             { transform: 'scale(1.2)' },
             { transform: 'scale(1)' },
-            { background: 'url(/img/rock.png)' },
+            { background: 'url(img/rock.png)' },
             { transform: 'scale(1.2)' },
             { transform: 'scale(1)' }
           ], {
@@ -164,33 +170,39 @@ function playRound(userPlay, computerPlay) {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. It's a tie`);
         document.getElementsByClassName(`computer${userPlay}`)[0].style.display='flex';
         userChoice.setAttribute("id", `${userPlay}`);
-        userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`);
-        document.getElementById(`comp${computerPlay}`).animate([
-            // keyframes
-            { transform: 'scale(1.5)' },
-            { transform: 'scale(1)' }
-          ], {
-            // timing options
-            duration: 700,
-          });
+        userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`); 
         animation(computerPlay);
         document.getElementsByClassName(`userChoiceStyle`)[0].animate([
           // keyframes
           { background: 'none' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' },
-          { background: 'url(/img/rock.png)' },
+          { background: 'url(img/rock.png)' },
           { transform: 'scale(1.2)' },
           { transform: 'scale(1)' }
         ], {
           // timing options
           duration: 1700,
         });
+        document.getElementById("tieScore").animate([
+          // keyframes
+          { transform: 'scale(1.5)' },
+          { transform: 'scale(1)' }
+        ], {
+          // timing options
+          duration: 700,
+          delay: 1600,
+        });
+        setTimeout(function () {
+          numberTies++;
+          tieScore.innerHTML = numberTies;
+          output.innerHTML = `It's a tie!`;
+        }, delay);
     }
 }

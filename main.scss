@@ -1,9 +1,12 @@
 body {
-    background: yellow;
+    background: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0 auto;
     max-width: 1600px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 36px;
+    font-size: 30px;
+    text-align: center;
 
     #image-wrapper {
         display: grid;
@@ -11,11 +14,11 @@ body {
         margin: 0 auto;
         grid-template-columns:repeat(5, 20%);
         grid-template-rows:repeat(5, 20%);
-        height: 92vh;
+        height: 92vh; 
 
         .computer {
-            grid-column-start: 3;
-            grid-row-start: 1;
+            grid-column-start: 4;
+            grid-row-start: 2;
             align-self: end;
             margin-bottom: 20px;
             
@@ -24,17 +27,30 @@ body {
             }
         }
 
+        .user {
+            grid-column-start: 2;
+            grid-row-start: 2;
+            align-self: end;
+            justify-self: center;
+            margin-bottom: 20px;
+        }
+
+        .tie {
+            grid-column-start: 3;
+            grid-row-start: 2;
+            align-self: end;
+            font-size: 22px;
+        }
+
         #computerScore, #userScore {
             display: flex;
             justify-content: center;
         }
 
-        .user {
+        #output-message {
             grid-column-start: 3;
-            grid-row-start: 4;
-            align-self: end;
-            justify-self: center;
-            margin-bottom: 20px;
+            grid-row-start: 2;
+            font-size: 24px;
         }
 
         .item {
@@ -46,6 +62,13 @@ body {
                 transform:scale(1.05);
             }
 
+            &.userChoiceStyle {
+                &:hover {
+                    transform:scale(1.0);
+                    cursor: inherit;
+                }
+            }
+
             &.hide {
                 cursor: initial;
 
@@ -54,87 +77,67 @@ body {
                 }
             }
 
-            &.scissors-sizer {
+            &.scissors-sizer, &.paper-sizer, &.rock-sizer  {
                 height: 200px;
                 width: 200px;
-            }
+            }   
+        }
 
-            &.paper-sizer {
-                height: 200px;
-                width: 200px;
-            }
-
-            &.rock-sizer {
-                height: 200px;
-                width: 200px;
-            }
-            
+        .icon-wrapper {
+            grid-column-start: 2;
+            grid-row-start: 4;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding-top: 50px;
         }
 
 
         #rock {
-            background: url(/img/rock.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            grid-column-start: 2;
-            grid-row-start: 5;
-
-            &.userChoiceStyle {
-                display: flex;
-                grid-column-start: 3;
-                grid-row-start: 3;
-            }
+            background: url(img/rock.png);
         }
+
+
         #paper {
-            background: url(/img/paper.png);
+            background: url(img/paper.png);
+        }
+
+        #scissors  {
+            background: url(img/scissors.png);
+        }
+
+        #paper, #scissors, #rock {
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            grid-column-start: 3; 
-            grid-row-start: 5;
 
             &.userChoiceStyle {
                 display: flex;
-                grid-column-start: 3;
+                grid-column-start: 2;
                 grid-row-start: 3;
             }
-        }
-        #scissors  {
-            background: url(/img/scissors.png);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            grid-row-start: 5;
-            grid-column-start: 4;
-            
-            &.userChoiceStyle {
-                display: flex;
-                grid-column-start: 3;
-                grid-row-start: 3;
+
+            &.icon {
+                width: 70px;
+                height: 70px;
             }
         }
 
         .computerrock {
-            background: url(/img/rock.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            grid-row-start: 2;
-            grid-column-start: 3;
+            background: url(img/rock.png);
         }
         .computerpaper {
-            background: url(/img/paper.png);
-            background-repeat: no-repeat;
-            background-size: cover;
-            grid-row-start: 2;
-            grid-column-start: 3;
+            background: url(img/paper.png);
         }
         .computerscissors {
-            background: url(/img/scissors.png);
+            background: url(img/scissors.png);
+        }
+
+        .computerrock, .computerpaper, .computerscissors {
             background-repeat: no-repeat;
             background-size: cover;
-            grid-row-start: 2;
-            grid-column-start: 3;
+            grid-row-start: 3;
+            grid-column-start: 4;
         }
     }
 }        
