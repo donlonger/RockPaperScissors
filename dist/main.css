@@ -1,0 +1,148 @@
+body {
+  background: url("img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  max-width: 1600px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 26px;
+  text-align: center;
+}
+body #image-wrapper {
+  display: grid;
+  width: 1500px;
+  margin: 0 auto;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(5, 20%);
+  height: 100vh;
+}
+body #image-wrapper .computer {
+  grid-column-start: 4;
+  grid-row-start: 2;
+  align-self: end;
+  margin-bottom: 20px;
+}
+body #image-wrapper .computer span {
+  margin-bottom: 20px;
+}
+body #image-wrapper .user {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 20px;
+}
+body #image-wrapper .tie {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  align-self: end;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+body #image-wrapper #history {
+  width: 160px;
+  overflow: hidden;
+  font-size: 16px;
+  grid-column-start: 3;
+  grid-row-start: 3;
+  display: flex;
+  margin: 0 auto;
+  transition: 1s all;
+  align-self: center;
+}
+body #image-wrapper #history-description {
+  grid-column-start: 3;
+  grid-row-start: 3;
+  font-size: 8px;
+  margin-top: 70px;
+}
+body #image-wrapper #roundsCounter {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  font-size: 20px;
+  margin-top: 55px;
+}
+body #image-wrapper #roundHeader {
+  grid-column-start: 3;
+  grid-row-start: 2;
+  font-size: 20px;
+  margin-top: 35px;
+}
+body #image-wrapper #computerScore, body #image-wrapper #userScore {
+  display: flex;
+  justify-content: center;
+}
+body #image-wrapper #output-message {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  font-size: 24px;
+  align-self: center;
+}
+body #image-wrapper .item {
+  cursor: pointer;
+  justify-self: center;
+  transition: 0.3s all;
+}
+body #image-wrapper .item:hover {
+  transform: scale(1.05);
+}
+body #image-wrapper .item.userChoiceStyle:hover {
+  transform: scale(1);
+  cursor: inherit;
+}
+body #image-wrapper .item.hide {
+  cursor: initial;
+}
+body #image-wrapper .item.hide:hover {
+  transform: initial;
+}
+body #image-wrapper .item.scissors-sizer, body #image-wrapper .item.paper-sizer, body #image-wrapper .item.rock-sizer {
+  height: 200px;
+  width: 200px;
+}
+body #image-wrapper .icon-wrapper {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+body #image-wrapper #rock {
+  background: url(img/rock.png);
+}
+body #image-wrapper #paper {
+  background: url(img/paper.png);
+}
+body #image-wrapper #scissors {
+  background: url(img/scissors.png);
+}
+body #image-wrapper #paper, body #image-wrapper #scissors, body #image-wrapper #rock {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+body #image-wrapper #paper.userChoiceStyle, body #image-wrapper #scissors.userChoiceStyle, body #image-wrapper #rock.userChoiceStyle {
+  display: flex;
+  grid-column-start: 2;
+  grid-row-start: 3;
+}
+body #image-wrapper #paper.icon, body #image-wrapper #scissors.icon, body #image-wrapper #rock.icon {
+  width: 70px;
+  height: 70px;
+}
+body #image-wrapper .computerrock {
+  background: url(img/rock.png);
+}
+body #image-wrapper .computerpaper {
+  background: url(img/paper.png);
+}
+body #image-wrapper .computerscissors {
+  background: url(img/scissors.png);
+}
+body #image-wrapper .computerrock, body #image-wrapper .computerpaper, body #image-wrapper .computerscissors {
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-row-start: 3;
+  grid-column-start: 4;
+}

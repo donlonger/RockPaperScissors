@@ -7,10 +7,10 @@ let tieScore = document.getElementById("tieScore");
 let userChoice = document.getElementById("userChoice");
 let array = [rock.id, paper.id, scissors.id];
 let elements = document.getElementsByClassName('hide');
-let numberUser = userScore.innerHTML;
-let numberComputer = computerScore.innerHTML;
 let numberTies = tieScore.innerHTML;
 let output = document.getElementById('output-message');
+let history = document.getElementById('history');
+let roundCounter = document.getElementById('roundsCounter');
 let delay = 1600;
 
 function computerPlay() {
@@ -31,32 +31,58 @@ function userPlay(id) {
 }
 
 function animation(id) {
-  let animation = document.getElementById(`comp${id}`).animate([
-    // keyframes
-    { background: 'none' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' },
-    { background: 'url(img/rock.png)' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' },
-    { background: 'url(img/rock.png)' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' },
-    { background: 'url(img/rock.png)' },
-    { transform: 'scale(1.2)' },
-    { transform: 'scale(1)' }
-  ], {
-    // timing options
-    duration: 1700,
-  });
+  let animation;
 
+  if(id == `userChoiceStyle`) {
+    animation = document.getElementsByClassName(`userChoiceStyle`)[0].animate([
+      // keyframes
+      { background: 'none' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' }
+    ], {
+      // timing options
+      duration: 1700,
+    });
+  }
+  else {
+    animation = document.getElementById(`comp${id}`).animate([
+      // keyframes
+      { background: 'none' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' },
+      { background: 'url(img/rock.png)' },
+      { transform: 'scale(1.2)' },
+      { transform: 'scale(1)' }
+    ], {
+      // timing options
+      duration: 1700,
+    });
+  }
   return animation;
 }
 
-
 function playRound(userPlay, computerPlay) {
 
-    output.innerHTML = "";
+    output.innerHTML = "Who's gonna win?";
+    rock.style.pointerEvents = 'none';
+    paper.style.pointerEvents = 'none';
+    scissors.style.pointerEvents = 'none';
+    roundCounter.innerHTML++; 
 
     function computerWinFormula() {
         console.log(`You selected ${userPlay}, computer selected ${computerPlay}. Computer Won`);
@@ -64,11 +90,15 @@ function playRound(userPlay, computerPlay) {
         userChoice.setAttribute("id", `${userPlay}`);
         userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`);
         setTimeout(function () {
-          numberComputer++;
-          computerScore.innerHTML = numberComputer;
+          computerScore.innerHTML++;
           output.innerHTML = `Bad luck! Computer Won`;
+          $('#history').prepend('<p>L</p>');
+          $('#history p:first-child').css('color', 'red'); 
+          rock.style.pointerEvents = 'auto';
+          paper.style.pointerEvents = 'auto';
+          scissors.style.pointerEvents = 'auto';
         }, delay);
-        document.getElementById("computerScore").animate([
+        computerScore.animate([
             // keyframes
             { transform: 'scale(1.5)' },
             { transform: 'scale(1)' }
@@ -77,26 +107,8 @@ function playRound(userPlay, computerPlay) {
             duration: 700,
             delay: 1600,
           });
-
         animation(computerPlay);
-        document.getElementsByClassName(`userChoiceStyle`)[0].animate([
-          // keyframes
-          { background: 'none' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' }
-        ], {
-          // timing options
-          duration: 1700,
-        });
+        animation('userChoiceStyle');
     }
 
     function userWinFormula() {
@@ -104,12 +116,19 @@ function playRound(userPlay, computerPlay) {
         document.getElementsByClassName(`computer${computerPlay}`)[0].style.display='flex';
         userChoice.setAttribute("id", `${userPlay}`);
         userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`); 
+        rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled = true;
         setTimeout(function () {
-          numberUser++;
-          userScore.innerHTML = numberUser;
+          userScore.innerHTML++;
           output.innerHTML = `You've Won!`;
+          $('#history').prepend('<p>W</p>');
+          $('#history p:first-child').css('color', '#40eb34');
+          rock.style.pointerEvents = 'auto';
+          paper.style.pointerEvents = 'auto';
+          scissors.style.pointerEvents = 'auto';
         }, delay);
-        document.getElementById("userScore").animate([
+        userScore.animate([
             // keyframes
             { transform: 'scale(1.5)' },
             { transform: 'scale(1)' }
@@ -118,31 +137,9 @@ function playRound(userPlay, computerPlay) {
             duration: 700,
             delay: 1600,
           });
-
           animation(computerPlay);
-
-          document.getElementsByClassName(`userChoiceStyle`)[0].animate([
-            // keyframes
-            { background: 'none' },
-            { transform: 'scale(1.2)' },
-            { transform: 'scale(1)' },
-            { background: 'url(img/rock.png)' },
-            { transform: 'scale(1.2)' },
-            { transform: 'scale(1)' },
-            { background: 'url(img/rock.png)' },
-            { transform: 'scale(1.2)' },
-            { transform: 'scale(1)' },
-            { background: 'url(img/rock.png)' },
-            { transform: 'scale(1.2)' },
-            { transform: 'scale(1)' }
-          ], {
-            // timing options
-            duration: 1700,
-          });
-
+          animation('userChoiceStyle');
     }
-
-
 
     for(var i=0; i < elements.length; i++) {  
         document.getElementsByClassName("hide")[i].style.display = 'none';    
@@ -172,25 +169,8 @@ function playRound(userPlay, computerPlay) {
         userChoice.setAttribute("id", `${userPlay}`);
         userChoice.setAttribute("class", `userChoiceStyle ${userPlay}-sizer item`); 
         animation(computerPlay);
-        document.getElementsByClassName(`userChoiceStyle`)[0].animate([
-          // keyframes
-          { background: 'none' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' },
-          { background: 'url(img/rock.png)' },
-          { transform: 'scale(1.2)' },
-          { transform: 'scale(1)' }
-        ], {
-          // timing options
-          duration: 1700,
-        });
-        document.getElementById("tieScore").animate([
+        animation('userChoiceStyle');
+        tieScore.animate([
           // keyframes
           { transform: 'scale(1.5)' },
           { transform: 'scale(1)' }
@@ -200,9 +180,12 @@ function playRound(userPlay, computerPlay) {
           delay: 1600,
         });
         setTimeout(function () {
-          numberTies++;
-          tieScore.innerHTML = numberTies;
+          tieScore.innerHTML++;
           output.innerHTML = `It's a tie!`;
+          $('#history').prepend('<p>T</p>');
+          rock.style.pointerEvents = 'auto';
+          paper.style.pointerEvents = 'auto';
+          scissors.style.pointerEvents = 'auto';
         }, delay);
     }
 }

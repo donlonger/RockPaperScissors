@@ -5,7 +5,7 @@ body {
     margin: 0 auto;
     max-width: 1600px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 30px;
+    font-size: 26px;
     text-align: center;
 
     #image-wrapper {
@@ -14,7 +14,7 @@ body {
         margin: 0 auto;
         grid-template-columns:repeat(5, 20%);
         grid-template-rows:repeat(5, 20%);
-        height: 92vh; 
+        height: 100vh; 
 
         .computer {
             grid-column-start: 4;
@@ -40,6 +40,39 @@ body {
             grid-row-start: 2;
             align-self: end;
             font-size: 22px;
+            margin-bottom: 30px;
+        }
+
+        #history {
+            width: 160px;
+            overflow: hidden;
+            font-size: 16px;
+            grid-column-start: 3;
+            grid-row-start: 3;
+            display: flex;
+            margin: 0 auto;
+            transition: 1s all;
+            align-self: center;
+        }
+
+        #history-description {
+            grid-column-start: 3;
+            grid-row-start: 3;
+            font-size: 8px;
+            margin-top: 70px;
+        }
+
+        #roundsCounter {
+            grid-column-start: 3;
+            grid-row-start: 2;
+            font-size: 20px;
+            margin-top: 55px;
+        }
+        #roundHeader {
+            grid-column-start: 3;
+            grid-row-start: 2;
+            font-size: 20px;
+            margin-top: 35px;
         }
 
         #computerScore, #userScore {
@@ -49,8 +82,9 @@ body {
 
         #output-message {
             grid-column-start: 3;
-            grid-row-start: 2;
+            grid-row-start: 1;
             font-size: 24px;
+            align-self: center;
         }
 
         .item {
