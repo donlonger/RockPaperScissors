@@ -12,6 +12,78 @@ let output = document.getElementById('output-message');
 let history = document.getElementById('history');
 let roundCounter = document.getElementById('roundsCounter');
 let delay = 1600;
+let loader = document.getElementById('loader');
+let contentWrapper = document.getElementById('content-wrapper');
+let textWrapper = document.getElementById("text-wrapper");
+
+
+$(function() {
+  loader.animate([
+    // keyframes
+    { background: 'none' },
+    { transform: 'scale(1.3)' },
+    { transform: 'scale(.7)' },
+    { background: 'url(img/rock.png)' },
+    { transform: 'scale(1.3)' },
+    { transform: 'scale(.7)' },
+    { background: 'url(img/rock.png)' },
+    { transform: 'scale(1.3)' },
+    { transform: 'scale(.7)' },
+    { background: 'url(img/rock.png)' },
+    { transform: 'scale(1.3)' },
+    { transform: 'scale(.7)' },
+    { background: 'url(img/rock.png)' }, 
+    { transform: 'scale(0)' }
+  ], {  
+    // timing options
+    duration: 2300,
+    easing: "cubic-bezier(0.3,0,1,.6)",
+    fill: "forwards"
+  });
+  setTimeout(function () {
+    contentWrapper.style.display = 'grid';
+    loader.style.display = 'none';
+  }, 2500);
+  setTimeout(function () {
+    rock.animate([
+      // keyframes
+      { transform: 'scale(1)' },
+      { transform: 'scale(1.5)' },
+      { transform: 'scale(.7)' },
+      { transform: 'scale(1)' }, 
+    ], {
+      // timing options
+      duration: 600,
+    });
+
+  }, 3100);
+  setTimeout(function () {
+
+    paper.animate([
+      // keyframes
+      { transform: 'scale(1)' },
+      { transform: 'scale(1.5)' },
+      { transform: 'scale(.7)' },
+      { transform: 'scale(1)' }, 
+    ], {
+      // timing options
+      duration: 600,
+    });
+  }, 3200);
+  setTimeout(function () {
+    scissors.animate([
+      // keyframes
+      { transform: 'scale(1)' },
+      { transform: 'scale(1.5)' },
+      { transform: 'scale(.7)' },
+      { transform: 'scale(1)' }, 
+    ], {
+      // timing options
+      duration: 600,
+    });
+  }, 3300);
+  textWrapper.style.display = 'grid';
+});
 
 function computerPlay() {
     let result = array[Math.floor(Math.random() * array.length)];

@@ -18,10 +18,10 @@
   "homepage": "https://github.com/donlonger/RockPaperScissors#readme",
   "dependencies": {
     "concat": "^1.0.3",
+    "image-preloader": "^1.1.1",
     "jquery": "^3.5.1",
     "postcss": "^8.3.6",
-    "sass": "^1.39.0",
-    "trim-newlines": "^4.0.2"
+    "sass": "^1.39.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
